@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ElBichoApp</title>
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -12,13 +13,65 @@
 
     <div id="appBicho">
         <div class="container">
-            <div class="menuBicho">
-                <button class="button is-white" v-on:click="toast">{{message}}</button>
+            <br>
+            <h3 class="center-align fuentec">¡El BichoAPP!</h3>
+            <div id="menuInicial" v-if="juegoON" class="row">
+               
+                <div class="col s6 center-align"> 
+                    <a class="waves-effect waves-light btn-large fuentec" v-on:click="iniciando"><i class="material-icons left">gamepad</i>¡Iniciar juego!</a>
+                    
+                </div>
+                <div class="col s6 center-align">
+                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal1"><i class="material-icons left">help</i>Como jugar</a>
+                </div>
+            </div>
+
+            <div id="juegoBicho" v-else class="row">
+                <div class="col s2 center-align"> 
+                    <p>Puntos</p>
+                </div>
+                <div class="col s8 center-align">
+                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_1">1</a>
+                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_2">2</a>
+                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_3">3</a>
+                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_4">4</a>
+                </div>
+                <div class="col s2 center-align">
+                    <p>Intentos</p>
+                </div>
+
+                
+            </div>
+
+            
+        </div>
+        <img class="responsive-img" src="img/ElBICHOR.png" alt="">
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+              <h4>Confirmar!</h4>
+              <p>Estas seguro de hacer en el lado <b>{{l_arqueria}}</b></p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
         </div>
-        <img id="bicho-fondo" class="responsive-img" src="img/ElBICHOR.png" alt="">
     </div>
     
+
+
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+
 
     <script src="js/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
