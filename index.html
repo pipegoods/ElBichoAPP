@@ -29,15 +29,17 @@
             <div id="juegoBicho" v-else class="row">
                 <div class="col s2 center-align"> 
                     <p>Puntos</p>
+                    <p><b>{{puntos}}</b></p>
                 </div>
                 <div class="col s8 center-align">
-                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_1">1</a>
-                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_2">2</a>
-                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_3">3</a>
-                    <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal2" v-on:click="l_4">4</a>
+                    <a class="waves-effect waves-light btn-large fuentec" v-on:click="l_1">1</a>
+                    <a class="waves-effect waves-light btn-large fuentec" v-on:click="l_2">2</a>
+                    <a class="waves-effect waves-light btn-large fuentec" v-on:click="l_3">3</a>
+                    <a class="waves-effect waves-light btn-large fuentec" v-on:click="l_4">4</a>
                 </div>
                 <div class="col s2 center-align">
                     <p>Intentos</p>
+                    <p><b>{{intentos}}</b></p>
                 </div>
 
                 
@@ -47,7 +49,7 @@
         </div>
         <img class="responsive-img" src="img/ElBICHOR.png" alt="">
 
-        <div id="modal2" class="modal">
+        <!-- <div id="modal2" class="modal">
             <div class="modal-content">
               <h4>Confirmar!</h4>
               <p>Estas seguro de hacer en el lado <b>{{l_arqueria}}</b></p>
@@ -55,7 +57,7 @@
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
-        </div>
+        </div> -->
     </div>
     
 
