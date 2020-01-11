@@ -49,15 +49,37 @@
         </div>
         <img class="responsive-img" src="img/ElBICHOR.png" alt="">
 
-        <!-- <div id="modal2" class="modal">
+        <div id="modal2" class="modal">
             <div class="modal-content">
-              <h4>Confirmar!</h4>
-              <p>Estas seguro de hacer en el lado <b>{{l_arqueria}}</b></p>
+              <h4>¡¡Puntos!!</h4>
+              <div class="row">
+                <div class="col s3 center-align">
+                    <p>Lado 1</p>
+                    <b v-if="l_arqueria == 1">{{l_1_p}}</b>
+                    <p v-else>{{l_1_p}}</p>
+                </div>
+                <div class="col s3 center-align">
+                    <p>Lado 2</p>
+                    <b v-if="l_arqueria == 2">{{l_2_p}}</b>
+                    <p v-else>{{l_2_p}}</p>
+                </div>
+                <div class="col s3 center-align">
+                    <p>Lado 3</p>
+                    <b v-if="l_arqueria == 3" >{{l_3_p}}</b>
+                    <p v-else>{{l_3_p}}</p>
+                </div>
+                <div class="col s3 center-align">
+                    <p>Lado 4</p>
+                    <b v-if="l_arqueria == 4" >{{l_4_p}}</b>
+                    <p v-else>{{l_4_p}}</p>
+                </div>
+              </div>
+              <br>
             </div>
             <div class="modal-footer">
               <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
-        </div> -->
+        </div>
     </div>
     
 

@@ -27,6 +27,7 @@ var appBicho = new Vue({
     l_4: function (event) {this.l_arqueria = 4; this.chutar();},
     chutar: function () {
       if (this.intentos>0) {
+        $("#modal2").modal('open');
         this.intentos--;
         this.generarAlt();
         switch (this.l_arqueria) {
