@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  $('.modal').modal();
+  $('.modal').modal({
+		dismissible: false
+	});
 });
 
 var appBicho = new Vue({
@@ -21,13 +23,14 @@ var appBicho = new Vue({
         M.toast({html: '¡Ay mi madre el Bicho!'});
         this.juegoON = false;
     },
-    l_1: function (event) {this.l_arqueria = 1; this.chutar();},
-    l_2: function (event) {this.l_arqueria = 2; this.chutar();},
-    l_3: function (event) {this.l_arqueria = 3; this.chutar();},
-    l_4: function (event) {this.l_arqueria = 4; this.chutar();},
-    chutar: function () {
+    l_1: function (event) {this.l_arqueria = 1; this.chutar(true);},
+    l_2: function (event) {this.l_arqueria = 2; this.chutar(true);},
+    l_3: function (event) {this.l_arqueria = 3; this.chutar(true);},
+    l_4: function (event) {this.l_arqueria = 4; this.chutar(true);},
+    chutar: function (ban) {
       if (this.intentos>0) {
-        $("#modal2").modal('open');
+        if (ban) {
+          $("#modal2").modal('open');
         this.intentos--;
         this.generarAlt();
         switch (this.l_arqueria) {
@@ -49,9 +52,11 @@ var appBicho = new Vue({
             this.puntos += this.l_4_p;
             break;
         }
+        }
+        
       } else {
-        alert("Tu puntaje final fue: " + this.puntos);
-        this.reiniciar();
+        $("#modal3").modal('open');
+        
       }
       
     },

@@ -77,7 +77,22 @@
               <br>
             </div>
             <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+              <a v-on:click="chutar(false)" class="modal-close waves-effect waves-green btn-flat">¡Continuar!</a>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+              <h4>¡¡Puntos Finales : {{puntos}}!!</h4>
+              <div class="divider"></div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate" minlength="3" maxlength="8" size="10">
+                <label for="icon_prefix">Apodo</label>
+              </div>
+            <div class="modal-footer">
+                <a class="modal-close waves-effect waves-light btn" v-on:click="reiniciar()"><i class="material-icons left">star</i>Cancelar</a>
+                <a class="modal-close waves-effect waves-light btn"><i class="material-icons left">send</i>Enviar</a>
             </div>
         </div>
     </div>
