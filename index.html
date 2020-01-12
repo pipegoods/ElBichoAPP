@@ -12,7 +12,7 @@
 <body class="fondo">
 
     <div class="row">
-        <div id="appBicho" class="col s8">
+        <div id="appBicho" class="col l8 s12">
             <div class="container">
                 <br>
                 <h3 class="center-align fuentec">¡El BichoAPP!</h3>
@@ -86,7 +86,7 @@
                 <div class="modal-content">
                   <h4>¡¡Puntos Finales : {{puntos}}!!</h4>
                   <div class="divider"></div>
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                     <i class="material-icons prefix">account_circle</i>
                     <input v-model="name" id="icon_prefix" type="text" class="validate" minlength="3" maxlength="8" size="10">
                     <label for="icon_prefix">Apodo</label>
@@ -99,16 +99,26 @@
             </div>
         </div>
         </div>
-    
-        <div id="puntajes" class="col s4">
+        <div class="divider"></div>
+        <div id="puntajes" class="col l4 s12">
             <ul class="collection with-header">
-                <li class="collection-header"><h4>¡Escalafon Mundial!</h4></li>
-                <li class="collection-item" v-for="t in tabla"><div>{{t.name}} <div class="chip secondary-content">
-                    <img src="https://pbs.twimg.com/profile_images/1172606663884279809/Ovm9AKB1_400x400.jpg" alt="Contact Person">
-                    {{t.puntos}}
-                  </div></div></li>
+                <li class="collection-header fuentec center-align"><h4>¡TOP 10 Mundial!</h4></li>
+                <li class="collection-item fuentec" v-for="t, i in tabla">
+                    <div v-if="i+1 == 1" class="elbicho">{{++i}} - {{t.name}}
+                        <div class="chip secondary-content">
+                        <img src="https://t.resfu.com/media/img_news/afp_fr_fd66ac996c462d5b0483b0920615413d4a26bc82.jpg?size=776x&q=60" alt="Contact Person">
+                            {{t.puntos}}
+                        </div>
+                    </div>
+                    <div v-else>{{++i}} - {{t.name}}
+                        <div class="chip secondary-content">
+                        <img src="https://pbs.twimg.com/profile_images/1172606663884279809/Ovm9AKB1_400x400.jpg" alt="Contact Person">
+                            {{t.puntos}}
+                        </div>
+                    </div>
+                </li>
               </ul>
-            <button v-on:click="actualizar()">actializar</button>
+
         </div>
     </div>
     

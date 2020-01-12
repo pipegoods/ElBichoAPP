@@ -5,24 +5,23 @@ var puntajes = new Vue({
       elbicho: {}
     },
     created: function() {
-        var cities = [];
-        citiesRef.orderBy("puntos", "desc").limit(10).onSnapshot(function(querySnapshot) {
-            
-            querySnapshot.forEach(function(doc) {
-                cities.push({name: doc.data().name, puntos: doc.data().puntos});
-                
-            });
-            
-        });
-        cities.forEach(t => {
-            this.tabla.push(t);
-            console.log(t);
-            
-        });
+      this.actualizar();
     },
     methods: {
         actualizar: function() {
-            console.log("HOLA");
+            console.log(this.tabla);
+            this.tabla = [];
+           citiesRef.orderBy("puntos", "desc").limit(10).get().then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+             this.elbicho = {
+                name: doc.data().name,
+                puntos: doc.data().puntos
+              }
+              this.tabla.push(this.elbicho);
+              
+              
+            })
+          });
             
         }
       }
