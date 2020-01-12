@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/bicho.ico" />
     <title>ElBichoApp</title>
     <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,7 +17,8 @@
         <div id="appBicho" class="col l8 s12">
             <div class="container">
                 <br>
-                <h3 class="center-align fuentec">¡El BichoAPP!</h3>
+                <h3 class="center-align fuentec">¡El BichoAPP!   <a class="btn-floating btn-large waves-effect waves-light rigth" v-on:click="sonido()"><i class="material-icons">{{volumen}}</i></a>
+                </h3>
                 <div id="menuInicial" v-if="juegoON" class="row">
                    
                     <div class="col s6 center-align"> 
@@ -136,7 +138,7 @@
         </div>
     </div>
 
-
+   
 
 
    <!-- The core Firebase JS SDK is always required and must be listed first -->

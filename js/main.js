@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('.modal').modal({
 		dismissible: false
-	});
+  });
 });
 
 
@@ -17,7 +17,8 @@ var appBicho = new Vue({
       l_2_p: 0,
       l_3_p: 0,
       l_4_p: 0,
-      name: ''
+      name: '',
+      volumen: 'volume_up'
     },
     
   // define methods under the `methods` object
@@ -25,7 +26,10 @@ var appBicho = new Vue({
     iniciando: function (event) {
         M.toast({html: '¡Ay mi madre el Bicho!'});
         this.juegoON = false;
-        this.playSound('music/aymimadre.mp3');
+        
+        if (this.volumen == 'volume_up') {
+          this.playSound('music/aymimadre.mp3');
+        }
     },
     l_1: function (event) {this.l_arqueria = 1; this.chutar(true);},
     l_2: function (event) {this.l_arqueria = 2; this.chutar(true);},
@@ -41,14 +45,14 @@ var appBicho = new Vue({
           case 1:
             M.toast({html: '¡Golazo al lado 1!'});
             this.puntos += this.l_1_p;
-            if (this.l_1_p >= 90) {
+            if (this.l_1_p >= 90 && this.volumen == 'volume_up') {
               this.playSound('music/suu.mp3');
             }
             break;
           case 2: // foo es 0, por lo tanto se cumple la condición y se ejecutara el siguiente bloque
             M.toast({html: '¡Golazo al lado 2!'});
             this.puntos += this.l_2_p;
-            if (this.l_2_p >= 90) {
+            if (this.l_2_p >= 90 && this.volumen == 'volume_up') {
               this.playSound('music/suu.mp3');
             }
             break;
@@ -56,14 +60,14 @@ var appBicho = new Vue({
           case 3: // No hay sentencia "break" en el 'case 0:', por lo tanto este caso también será ejecutado
             M.toast({html: '¡Golazo al lado 3!'});
             this.puntos += this.l_3_p;
-            if (this.l_3_p >= 90) {
+            if (this.l_3_p >= 90 && this.volumen == 'volume_up') {
               this.playSound('music/suu.mp3');
             }
             break; // Al encontrar un "break", no será ejecutado el 'case 2:'
           case 4:
             M.toast({html: '¡Golazo al lado 4!'});
             this.puntos += this.l_4_p;
-            if (this.l_4_p >= 90) {
+            if (this.l_4_p >= 90 && this.volumen == 'volume_up') {
               this.playSound('music/suu.mp3');
             }
             break;
@@ -120,6 +124,13 @@ var appBicho = new Vue({
       }
       this.reiniciar();
         puntajes.actualizar();
+    },
+    sonido: function() {
+      if (this.volumen == 'volume_up') {
+        this.volumen = 'volume_off';
+      } else {
+        this.volumen = 'volume_up';
+      }
     }
   }
   })
