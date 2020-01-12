@@ -4,6 +4,8 @@ $(document).ready(function(){
 	});
 });
 
+
+
 var appBicho = new Vue({
     el: '#appBicho',
     data: {
@@ -14,7 +16,8 @@ var appBicho = new Vue({
       l_1_p: 0,
       l_2_p: 0,
       l_3_p: 0,
-      l_4_p: 0
+      l_4_p: 0,
+      name: ''
     },
     
   // define methods under the `methods` object
@@ -22,6 +25,7 @@ var appBicho = new Vue({
     iniciando: function (event) {
         M.toast({html: '¡Ay mi madre el Bicho!'});
         this.juegoON = false;
+        
     },
     l_1: function (event) {this.l_arqueria = 1; this.chutar(true);},
     l_2: function (event) {this.l_arqueria = 2; this.chutar(true);},
@@ -76,6 +80,24 @@ var appBicho = new Vue({
       this.intentos = 3;
       this.puntos = 0;
       this.l_arqueria = 0;
+      
+
+    },
+    guardar: function () {
+     
+db.collection("users").add({
+  name: this.name,
+  puntos: this.puntos
+})
+.then(function(docRef) {
+  console.log("Document written with ID: ", docRef.id);
+  alert("Puntaje guardado con exito");
+  this.reiniciar();
+})
+.catch(function(error) {
+  console.error("Error adding document: ", error);
+  this.reiniciar();
+});
     }
   }
   })
