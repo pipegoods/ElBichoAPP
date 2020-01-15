@@ -20,18 +20,18 @@
                 <h3 class="center-align fuentec">¡El BichoAPP!   <a class="btn-floating btn-large waves-effect waves-light rigth" v-on:click="sonido()"><i class="material-icons">{{volumen}}</i></a>
                 </h3>
                 <div id="menuInicial" v-if="juegoON" class="row">
-                   
-                    <div class="col s6 center-align"> 
+
+                    <div class="col s6 center-align">
                         <a class="waves-effect waves-light btn-large fuentec" v-on:click="iniciando"><i class="material-icons left">gamepad</i>¡Iniciar juego!</a>
-                        
+
                     </div>
                     <div class="col s6 center-align">
                         <a class="waves-effect waves-light btn-large modal-trigger fuentec" href="#modal1"><i class="material-icons left">help</i>Como jugar</a>
                     </div>
                 </div>
-    
+
                 <div id="juegoBicho" v-else class="row">
-                    <div class="col s2 center-align"> 
+                    <div class="col s2 center-align">
                         <p>Puntos</p>
                         <p><b>{{puntos}}</b></p>
                     </div>
@@ -45,14 +45,14 @@
                         <p>Intentos</p>
                         <p><b>{{intentos}}</b></p>
                     </div>
-    
-                    
+
+
                 </div>
-    
-                
+
+
             </div>
             <img class="responsive-img" src="img/ElBICHOR.png" alt="">
-    
+
             <div id="modal2" class="modal">
                 <div class="modal-content">
                   <h4>¡¡Puntos!!</h4>
@@ -84,7 +84,7 @@
                   <a v-on:click="chutar(false)" class="modal-close waves-effect waves-green btn-flat">¡Continuar!</a>
                 </div>
             </div>
-    
+
             <div id="modal3" class="modal">
                 <div class="modal-content">
                   <h4>¡¡Puntos Finales : {{puntos}}!!</h4>
@@ -124,21 +124,31 @@
 
         </div>
     </div>
-    
 
 
 
-    <div id="modal1" class="modal">
+
+    <div id="modal1" class="modal" >
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
-        </div>
+          
+          <div class="modal-header">
+            <h3 class="fuentec" style="color: #8fa97e;">¿Como jugar?</span>
+          </div>
+          <div class="row">
+              <div class="col l8 s12">
+                <h5 class="fuentec">Selecciona cualquiera de las cuatro opciones de tiro (1,2,3,4) con esto generaras puntos para El BICHO, ayudalo a conseguir la mayor cantidad de puntos en tres intentos (300) para así poder ser el mejor . Compite a nivel mundial dejando tu nombre para que el BICHO sepa quien es el mejor y poder dedicarte un SIUUUUU!! personal.</h5>
+              </div>
+              <div class="col l4 s12">
+                <img class="responsive-img" src="img/constitucion.jpg">
+              </div>
+          </div>
+          </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a class="modal-close waves-effect waves-green btn" >Aceptar</a>
         </div>
     </div>
 
-   
+
 
 
    <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -178,6 +188,6 @@
 
 
 
-    
+
 </body>
 </html>
